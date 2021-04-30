@@ -1,0 +1,47 @@
+Interface:
+    - User can view journal form
+    - User can view old journal entries 
+    - User can write a new journal 
+    - User can edit a journal 
+    - User can delete a journal
+    -*User can customize interface 
+
+User class: 
+    x attributes => name, password 
+    - user signs up/logs in
+    - has many journals 
+
+User controller and views:
+    x '/user/signup' => renders sign up form 
+    x '/users/signup' => processes sign up form, creates user
+    - '/users/login' => renders login form 
+    - '/users/signup' => processes sign up form, creates user
+    - '/users/login' => processes login form
+    - sessions ? 
+    - user can view their journals, 'users/:id/journal'
+    - '/users/menu' => processes interface menu color changes 
+
+Journals class:
+    x attributes => title, date, entry, mood, lucid?
+    x journals belong to user 
+
+Journals controller and views:
+    x '/journals/new' => renders a new journal form 
+    x '/journals' => submits journal entry
+    x '/journals' => renders all journals 
+    x '/journals/:id' => renders one journal entry instance 
+    - '/journals/:id/edit => renders update form for a journal entry instance
+    - '/journals/:id' => updates instance 
+    - '/journals/:id/:delete' => deletes instance
+
+Process: 
+
+    x set up classes 
+    x set up database 
+    x users controller 
+    - journals controller 
+
+
+
+
+

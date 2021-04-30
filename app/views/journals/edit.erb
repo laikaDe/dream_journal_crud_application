@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<h1> This is the journal entry form </h1>
+<form action="/journals/#{@journal.id}" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
+Title: <input type=text value="<%= @journal.title %>" name="title">
+Date: <input type=date value="<%= @journal.date %>" name="date">
+Entry: <input type=text value="<%= @journal.entry %>" name="entry">
+Mood: <input type=text value="<%= @journal.mood %>" name="mood">
+<input type=submit>
+</form>
+</html>

@@ -1,0 +1,9 @@
+Title: <%= @journal.title %><br>
+Date: <%= @journal.date %><br>
+Entry: <%= @journal.entry %><br>
+Mood: <%= @journal.mood %><br>
+
+<form method="post" action="/journals/<%= @journal.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="delete">
+</form>
