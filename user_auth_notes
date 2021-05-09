@@ -1,0 +1,12 @@
+# User Authenication
+- ability for the user to sign up, login, and logout
+- keep track of our users: session
+
+##Enable Sessions
+- a hash thats stored inside cookies
+
+## Implement users model
+
+## Create signup/login/logout routes
+
+## Protect your routes

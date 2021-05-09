@@ -1,8 +1,8 @@
 <% @journals.each do |journal| %>
-    Journal Number: <%= @journal.id %>
-    By: <%= @journal.user_id %>
-    Title: <%= @journal.title %>
-    Date: <%= @journal.date %>
-    Entry: <%= @journal.entry %>
-    Mood: <%= @journal.mood %>
+    Title: <%= journal.title %>
+    Date: <%= journal.date %>
+    Entry: <%= journal.entry %>
+    Mood: <%= journal.mood %>
 <% end %>
+
+

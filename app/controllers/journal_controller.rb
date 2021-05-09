@@ -27,12 +27,13 @@ class JournalController < ApplicationController
     get '/journals' do 
         @journals = Journal.all
         erb :'/journals/index'
+        
         #returns an array of all instances of this class
     end
 
     #update 
 
-    get 'journals/:id/edit' do 
+    get '/journals/:id/edit' do 
         @journal = Journal.find(params[:id])
         erb :'/journals/edit'
     end
@@ -50,7 +51,7 @@ class JournalController < ApplicationController
 
     #delete
 
-    delete '/journals/:id/delete' do 
+    delete '/journals/:id' do 
         @journal = Journal.find(params[:id])
         @journal.destroy
         redirect '/journals'

@@ -8,7 +8,10 @@ class UserController < ApplicationController
         #get params from our form 
         #params hash is created automatically 
         #get this params by using params.inspect
-        @user = User.create(username:params[:username], password: params[:password])
+        @user = User.create(
+            username:params[:username],
+            password: params[:password]
+            )
         redirect "/users/#{@user.id}"
     end
 
