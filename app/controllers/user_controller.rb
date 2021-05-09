@@ -12,7 +12,23 @@ class UserController < ApplicationController
             username:params[:username],
             password: params[:password]
             )
+        session[:user_id] = @user.id
         redirect "/users/#{@user.id}"
+    end
+
+    get '/users/login' do 
+        #if the user is logged in 
+        #redirect to their homepage
+        #else, show them the login form
+        erb :'users/login'
+    end
+
+    post '/users/login' do
+        #want to find the user if it exists 
+         @user = User.find_by(username: params[:username])
+        #if user exists => authenticate password
+        
+            
     end
 
     get '/users/:id' do

@@ -30,18 +30,27 @@ Journals controller and views:
     x '/journals' => submits journal entry
     x '/journals' => renders all journals 
     x '/journals/:id' => renders one journal entry instance 
-    - '/journals/:id/edit => renders update form for a journal entry instance
-    - '/journals/:id' => updates instance 
-    - '/journals/:id/:delete' => deletes instance
+    x '/journals/:id/edit => renders update form for a journal entry instance
+    x '/journals/:id' => updates instance 
+    x '/journals/:id/:delete' => deletes instance
 
 Process: 
 
     x set up classes 
     x set up database 
     x users controller 
-    - journals controller 
+    x journals controller 
 
 
+Sessions:
 
+1. Enable sessions.
+2. Utilize sessions hash in the methods that persist user data into application. 
+
+
+Authentication: 
+1. bcrypt gem
+2. user model, has_secure_password
+3. change users table, password => password_digest
 
 
