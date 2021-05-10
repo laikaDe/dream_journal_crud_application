@@ -16,4 +16,11 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  helpers do 
+
+    def logged_in? #return a true or a false value
+      !!session[:user_id] #negating twice -> turns it into a boolean
+    end
+  end
+
 end

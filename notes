@@ -53,4 +53,10 @@ Authentication:
 2. user model, has_secure_password
 3. change users table, password => password_digest
 
+user is logged in?
+- redirect to homepage, if logged in 
+- cant see the signup or login form if logged in 
 
+helper methods 
+- application ontroller => methods available to controller 
+- app/helpers => helper methods used in your views
