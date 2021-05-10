@@ -60,3 +60,11 @@ user is logged in?
 helper methods 
 - application ontroller => methods available to controller 
 - app/helpers => helper methods used in your views
+
+Save journals to user account:
+1. Save each user's journal entries in their account 
+->How do I tell one person's journal is in their account 
+vs. someone elses account? 
+
+2. Journal entries from other users should not be accessible to other users 
+
