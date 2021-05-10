@@ -1,4 +1,4 @@
-<h1> This is the journal edit form </h1>
+<h1> EDIT YOUR JOURNAL </h1>
 <form action="/journals/<%= @journal.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   Title: <input type=text value="<%= @journal.title %>" name="title"><br>

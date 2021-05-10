@@ -1,8 +1,11 @@
+JOURNAL ENTRIES
+
 <% @journals.each do |journal| %>
-    Title: <%= journal.title %>
-    Date: <%= journal.date %>
-    Entry: <%= journal.entry %>
-    Mood: <%= journal.mood %>
+    <strong><%= journal.title %></strong>
+    <p>Date: <%= journal.date %></p>
+    <p>Entry: <%= journal.entry %></p>
+    <p>Mood: <%= journal.mood %></p>
+    <br><br>
 <% end %>
 
 

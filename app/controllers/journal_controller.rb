@@ -41,7 +41,8 @@ class JournalController < ApplicationController
     patch '/journals/:id' do 
         @journal = Journal.find(params[:id])
         @journal.update(
-            title: params[:title], 
+            title: params[:title],
+            by: params[:user_id], 
             date: params[:date], 
             entry: params[:entry], 
             mood: params[:mood]

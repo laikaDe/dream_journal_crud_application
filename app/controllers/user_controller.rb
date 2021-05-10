@@ -13,10 +13,10 @@ class UserController < ApplicationController
             redirect "/users/signup"
         else
             @user = User.create(
-            username:params[:username],
+            username: params[:username],
             password: params[:password]
             )
-            session[:user_id] = @user_id
+            session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
         end
     end
@@ -36,9 +36,8 @@ class UserController < ApplicationController
     post '/users/login' do
         #want to find the user if it exists 
         @user = User.find_by(username: params[:username])
-        
         if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user_id
+            session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
             #authenticate password 
             #start session
@@ -53,13 +52,15 @@ class UserController < ApplicationController
 
     get '/users/:id' do
         #looks at once instance of user 
-        #showpage => page where one renders data of just one instance 
+        #showpage => page where one renders data of just one instance
+        
         @user = User.find(params[:id])
+        redirect_if_not_logged_in
         erb :'/users/show'
     end
 
-    get '/users/logout' do
-        sessions.clear
+    get '/logout' do
+        session.clear
         redirect '/'
     end
 end
