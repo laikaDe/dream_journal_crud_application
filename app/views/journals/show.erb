@@ -1,9 +1,27 @@
+<a href="/logout"> Logout || </a><a href="/journals"> Journal Entries </a> || <a href="/journals/new"> New Journal Entry</a><br>
+
 Title: <%= @journal.title %><br>
 Date: <%= @journal.date %><br>
 Entry: <%= @journal.entry %><br>
 Mood: <%= @journal.mood %><br>
+<!--
+Renders the journal entry input fields
+-->
 
 <form method="post" action="/journals/<%= @journal.id %>">
 <input id="hidden" type="hidden" name="_method" value="DELETE">
 <input type="submit" value="delete">
 </form>
+<!-- Since HTML forms do not support PUT, PATCH or DELETE actions.
+I must add hidden method fields.
+-->
+<form method="get" action="/journals/<%=@journal.id%>/edit">
+<input id="hidden" type="hidden" name="_method" value="GET">
+<input type="submit" value="edit">
+</form>
+<!--
+1. The show page renders the user's data from the new/form 
+2. Additionally it renders an edit button and a delete button
+3. The edit button takes the user to the edit form
+4. The delete button deletes the data and takes user back to the showpage.
+-->

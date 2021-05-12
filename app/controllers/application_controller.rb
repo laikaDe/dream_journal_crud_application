@@ -37,6 +37,10 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    # def authorized_to_edit?(journal_entry)
+    #   journal_entry.user == current_user
+    # end
+
     # use this helper method to avoid showing welcome, login, or signup page to a user that's already logged in
     def redirect_if_logged_in
       if logged_in?
@@ -44,5 +48,4 @@ class ApplicationController < Sinatra::Base
       end
     end
   end
-
 end

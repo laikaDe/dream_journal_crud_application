@@ -1,6 +1,8 @@
+<p><a href="/logout"> Logout || </a><a href="/journals"> Journal Entries </a> || <a href="/journals/new"> New Journal Entry</a><br></p>
+
 JOURNAL ENTRIES
 
-<% @journals.each do |journal| %>
+<p><% @journals.each do |journal| %></p>
     <strong><%= journal.title %></strong>
     <p>Date: <%= journal.date %></p>
     <p>Entry: <%= journal.entry %></p>

@@ -1,25 +1,23 @@
 Interface:
-    - User can view journal form
-    - User can view old journal entries 
-    - User can write a new journal 
+    x User can view journal form
+    x User can view old journal entries 
+    x User can write a new journal 
     - User can edit a journal 
-    - User can delete a journal
-    -*User can customize interface 
+    x User can delete a journal
 
 User class: 
     x attributes => name, password 
-    - user signs up/logs in
-    - has many journals 
+    x user signs up/logs in
+    x has many journals 
 
 User controller and views:
     x '/user/signup' => renders sign up form 
     x '/users/signup' => processes sign up form, creates user
-    - '/users/login' => renders login form 
-    - '/users/signup' => processes sign up form, creates user
-    - '/users/login' => processes login form
-    - sessions ? 
-    - user can view their journals, 'users/:id/journal'
-    - '/users/menu' => processes interface menu color changes 
+    x '/users/login' => renders login form 
+    x '/users/signup' => processes sign up form, creates user
+    x '/users/login' => processes login form
+    x sessions ? 
+    x user can view their journals, 'users/:id/journal'
 
 Journals class:
     x attributes => title, date, entry, mood, lucid?
@@ -65,6 +63,7 @@ Save journals to user account:
 1. Save each user's journal entries in their account 
 ->How do I tell one person's journal is in their account 
 vs. someone elses account? 
+   ->M
 
 2. Journal entries from other users should not be accessible to other users 
 

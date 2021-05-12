@@ -1,9 +1,11 @@
+<a href="/logout"> Logout || </a><a href="/journals"> Journal Entries </a> || <a href="/journals/new"> New Journal Entry</a><br>
+
 <h1> EDIT YOUR JOURNAL </h1>
 <form action="/journals/<%= @journal.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   Title: <input type=text value="<%= @journal.title %>" name="title"><br>
-  Date: <input type=text value="<%= @journal.date %>" name="title"><br>
-  Entry: <input type=text value="<%= @journal.entry %>" name="title"><br>
-  Mood: <input type=text value="<%= @journal.mood %>" name="title"><br>
+  Date: <input type=text value="<%= @journal.date %>" name="date"><br>
+  Entry: <input type=text value="<%= @journal.entry %>" name="entry"><br>
+  Mood: <input type=text value="<%= @journal.mood %>" name="mood"><br>
   <input type=submit>
 </form>
