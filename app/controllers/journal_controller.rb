@@ -4,19 +4,10 @@ class JournalController < ApplicationController
 
     get '/journals/new' do
         erb :'/journals/new'
-        #renders journal entry form
     end
 
     post '/journals' do
 
-        #1. Finds the user_id in session and save that into an 
-        #   instance variable 
-        #2. Check if @user exists 
-        #3. If it does create a new Journal object and store it's 
-        # values into params as well as it's user_id into session 
-        #4. redirect "journals/#{@journal.id}"
-        #5. redirect "/login"
-        
         @user = User.find(session[:user_id])
         if @user
             if params[:title] == "" 
@@ -40,32 +31,27 @@ class JournalController < ApplicationController
 
 
     get '/journals/:id' do
-
-        #1. Takes in user_id through params and stores this in instance variable
-        #2. Sends that data to showpage
-        #3. Renders the data back to user 
         @journal = Journal.find_by_id(params[:id])
         erb :'/journals/show'
     end
 
     get '/journals' do 
-        #1. Iterates through all journals and filters 
-        #   the journals that is equal to the current user id
-        #2. Iterates through all journals
-        #3. Filters out the current user id 
-        #4. Stores the journals with the current user id in a variable
-        @journals = Journal.all
-        @journals = @journals.select {|journal|journal.user_id == session[:user_id]}
-        erb :'/journals/index'
-        
-        #returns an array of all instances of this class
+        if logged_in?
+            @user = current_user
+            @journals = @user.journals
+            erb :'/journals/index'
+        end
     end
 
     #update 
 
     get '/journals/:id/edit' do 
         @journal = Journal.find_by_id(params[:id])
-        erb :'/journals/edit'
+        if authorized_to_edit?(@journal)
+            erb :'/journals/edit'
+        else
+            redirect "users/#{current_user.id}"
+        end
     end
 
     patch '/journals/:id' do 
@@ -83,9 +69,10 @@ class JournalController < ApplicationController
 
     delete '/journals/:id' do 
         @journal = Journal.find(params[:id])
-        @journal.destroy
-        redirect '/journals'
+        if authorized_to_edit?(@journal)
+            @journal.destroy
+        else
+            redirect "users/#{current_user.id}"
+        end
     end
-
-
 end

@@ -6,6 +6,6 @@ require './config/environment'
 
 use Rack::MethodOverride
 
-use JournalController #=> This is mounting the User class to the ApplicationController so that it know's about it
-use UserController #=> This is mounting the User class to the ApplicationController so that it know's about it
+use JournalController
+use UserController 
 run ApplicationController

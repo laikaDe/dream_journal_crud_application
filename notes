@@ -2,7 +2,7 @@ Interface:
     x User can view journal form
     x User can view old journal entries 
     x User can write a new journal 
-    - User can edit a journal 
+    x User can edit a journal 
     x User can delete a journal
 
 User class: 
@@ -61,9 +61,8 @@ helper methods
 
 Save journals to user account:
 1. Save each user's journal entries in their account 
-->How do I tell one person's journal is in their account 
+-> How do I tell one person's journal is in their account 
 vs. someone elses account? 
-   ->M
 
-2. Journal entries from other users should not be accessible to other users 
+2. Journal entries from other users should not be accessible to other users. 
 

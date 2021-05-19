@@ -5,12 +5,12 @@ class ApplicationController < Sinatra::Base
   configure do
 
     set :public_folder, 'public'
-    #set sessions
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
     set :method_override, true
     register Sinatra::Flash
+    
   end
 
   get "/" do
@@ -37,9 +37,9 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    # def authorized_to_edit?(journal_entry)
-    #   journal_entry.user == current_user
-    # end
+    def authorized_to_edit?(journal)
+      journal.user == current_user
+    end
 
     # use this helper method to avoid showing welcome, login, or signup page to a user that's already logged in
     def redirect_if_logged_in

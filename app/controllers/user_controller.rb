@@ -1,30 +1,41 @@
 class UserController < ApplicationController
 
+    
+
     get '/users/signup' do
         erb :'/users/signup'
     end
 
     post '/users/signup' do
-        #get params from our form 
-        #params hash is created automatically 
-        #get this params by using params.inspect
+
+        #   If a user attempts to creates an account with a username that is already taken,
+        #   they get redirected back to the signup page.
+        #1. Iterate through all users 
+        #2. Check each user's usernames with the params[:username] from the 
+        #   the signup form 
+
+        @same_username = User.all.any? do |user|
+            user.username == params[:username]
+        end 
+
 
         if params[:username] == "" && params[:password] == ""
-            redirect "/users/signup"
+            redirect to 'users/signup'
+        
+        elsif @same_username == true
+            redirect to 'users/signup'
         else
             @user = User.create(
-            username: params[:username],
-            password: params[:password]
-            )
-            session[:user_id] = @user.id
-            redirect "/users/#{@user.id}"
+                username: params[:username],
+                password: params[:password]
+                )
+                session[:user_id] = @user.id
+                redirect "/users/#{@user.id}"
         end
     end
 
     get '/users/login' do 
-        #if the user is logged in 
-        #redirect to their homepage
-        #else, show them the login form
+
         if !logged_in?
             erb :'/users/login'
         else 
@@ -34,25 +45,16 @@ class UserController < ApplicationController
     end
 
     post '/users/login' do
-        #want to find the user if it exists 
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
-            #authenticate password 
-            #start session
-            #direct to homepage
         else 
-            #not valid 
-            #redirect to login again 
             redirect "/users/login"
-        end
-        #if user exists => authenticate password      
+        end   
     end
 
     get '/users/:id' do
-        #looks at once instance of user 
-        #showpage => page where one renders data of just one instance
         
         @user = User.find(params[:id])
         redirect_if_not_logged_in
