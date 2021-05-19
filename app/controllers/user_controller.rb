@@ -7,7 +7,7 @@ class UserController < ApplicationController
     end
 
     post '/users/signup' do
-
+        #
         #   If a user attempts to creates an account with a username that is already taken,
         #   they get redirected back to the signup page.
         #1. Iterate through all users 
